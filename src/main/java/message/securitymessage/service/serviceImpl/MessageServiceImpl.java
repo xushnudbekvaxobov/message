@@ -20,7 +20,7 @@ public class MessageServiceImpl implements MessageService {
     private final TokenService tokenService;
     private final MessageRepository messageRepository;
 
-    @Value("${spring.base.url}")
+    @Value("${app.base-url}")
     private String baseUrl;
 
     @Override
