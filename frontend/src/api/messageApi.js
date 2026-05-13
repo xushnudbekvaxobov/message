@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
@@ -18,14 +18,14 @@ async function request(endpoint, options = {}) {
 }
 
 export function createMessage({ content, expiresInMinutes }) {
-  return request('/api/messages', {
+  return request(`${API_BASE_URL}/api/messages`, {
     method: 'POST',
     body: JSON.stringify({ content, expiresInMinutes }),
   });
 }
 
 export function revealMessageByUrl(url) {
-  return request('/api/messages/reveal-by-url', {
+  return request(`${API_BASE_URL}/api/messages/reveal-by-url`, {
     method: 'POST',
     body: JSON.stringify({ url }),
   });

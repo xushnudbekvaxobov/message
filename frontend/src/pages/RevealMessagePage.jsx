@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { revealMessageByUrl } from '../api/messageApi';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 export default function RevealMessagePage() {
-  const { token } = useParams();
   const [step, setStep] = useState('confirm');
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
@@ -108,7 +107,7 @@ export default function RevealMessagePage() {
         </div>
 
         <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-          <p className="text-white text-base whitespace-pre-wrap leading-relaxed break-words">
+          <p className="text-white text-base whitespace-pre-wrap leading-relaxed wrap-break-word">
             {content}
           </p>
         </div>
